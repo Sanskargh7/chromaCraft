@@ -13,6 +13,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const MobileNav = () => {
+	const pathname = usePathname()
 	return (
 		<header className="header">
 			<Link href={'/'} className="flex items-center gap-2 md:py-2">
@@ -32,7 +33,7 @@ const MobileNav = () => {
 							<ul className="header_nav_elements">
 								{
 									navLinks.map((link) => {
-										const isActive = link.route === usePathname();
+										const isActive = link.route === pathname;
 										return (
 											<li key={link.route} className={`sidebar_nav_elements group ${isActive ? 'bg-yellow-200 text-black' : 'text-black-100'} hover:bg-yellow-100`
 											} >

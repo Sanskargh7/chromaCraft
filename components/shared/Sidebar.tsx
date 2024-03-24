@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation"
 import { Button } from "../ui/button"
 
 const Sidebar = () => {
+	const pathname = usePathname()
 	return (
 		<aside className='sidebar'>
 			<div className="flex size-full flex-col gap-4">
@@ -18,7 +19,7 @@ const Sidebar = () => {
 						<ul className="sidebar_nav_elements">
 							{
 								navLinks.slice(0, 6).map((link) => {
-									const isActive = link.route === usePathname();
+									const isActive = link.route === pathname;
 									return (
 										<li key={link.route} className={`sidebar_nav_elements group ${isActive ? 'bg-yellow-200 text-black' : 'text-black-100'} hover:bg-yellow-100`
 										} >
@@ -36,7 +37,7 @@ const Sidebar = () => {
 						<ul className="sidebar_nav_elements">
 							{
 								navLinks.slice(6).map((link) => {
-									const isActive = link.route === usePathname();
+									const isActive = link.route === pathname;
 									return (
 										<li key={link.route} className={`sidebar_nav_elements group ${isActive ? 'bg-yellow-200 text-black' : 'text-black-100'} hover:bg-yellow-100`
 										} >
